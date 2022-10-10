@@ -17,28 +17,48 @@ then return true. Otherwise, return false.
 */
 
 function adequateWaterTracker(calendar) {
-  let noWater = 0;
-  let water = 0;
+  let result =[];
+  debugger
+
   for (let i = 0; i < calendar.length; i++) {
-    const week = calendar[i];
-    for (let j = 0; j < week.length - 1; j++) {
-      const date = calendar[j]
-      if (day === 0) {
+    let week = calendar[i];
+    let noWater = 0;
+    let water = 0;
+    debugger
+    
+    for (let j = 0; j < week.length; j++) {
+      let date = week[j]
+      debugger
+      
+      if (date === 0) {
         noWater++;
-      } else {
+        debugger
+      } else if (date !== 0) {
         water++;
+        debugger
+      } 
+      if (noWater > 3) {
+        result.push("false")
+        debugger
       }
     }
   }
-  return noWater < water;
+  debugger
+  if (result.includes("false")) {
+    debugger
+    return false;
+  } 
+  debugger
+  return true;
+  // return noWater < water;
 }
 
-const calendar1 = [
-  [0, 0, 3, 1, 0, 4, 0],
-  [1, 2, 1, 2, 1, 3, 1],
-];
+// const calendar1 = [
+//   [0, 0, 3, 1, 0, 4, 0],
+//   [1, 2, 1, 2, 1, 3, 1],
+// ];
 
-console.log(adequateWaterTracker(calendar1)); // false
+// console.log(adequateWaterTracker(calendar1)); // false
 
 const calendar2 = [
   [1, 1, 1, 1, 1, 1, 1],
@@ -47,9 +67,9 @@ const calendar2 = [
 
 console.log(adequateWaterTracker(calendar2)); // false
 
-const calendar3 = [
-  [1, 1, 1, 1, 0, 0, 0],
-  [1, 1, 1, 1, 0, 0, 0],
-];
+// const calendar3 = [
+//   [1, 1, 1, 1, 0, 0, 0],
+//   [1, 1, 1, 1, 0, 0, 0],
+// ];
 
-console.log(adequateWaterTracker(calendar3)); // true
+// console.log(adequateWaterTracker(calendar3)); // true
